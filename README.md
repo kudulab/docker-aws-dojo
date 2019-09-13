@@ -1,13 +1,13 @@
 # docker-aws-dojo
 
-[Dojo](https://github.com/ai-traders/dojo) docker image with [awscli](https://github.com/aws/aws-cli) installed.
+[Dojo](https://github.com/kudulab/dojo) docker image with [awscli](https://github.com/aws/aws-cli) installed.
 Based on alpine docker image.
 
 ## Usage
-1. Install [Dojo](https://github.com/ai-traders/dojo)
+1. Install [Dojo](https://github.com/kudulab/dojo)
 ```bash
-DOJO_VERSION=0.5.0
-wget -O dojo https://github.com/ai-traders/dojo/releases/download/${DOJO_VERSION}/dojo_linux_amd64
+DOJO_VERSION=0.6.0
+wget -O dojo https://github.com/kudulab/dojo/releases/download/${DOJO_VERSION}/dojo_linux_amd64
 sudo mv dojo /usr/local/bin
 sudo chmod +x /usr/local/bin/dojo
 ```

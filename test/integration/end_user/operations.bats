@@ -16,7 +16,7 @@ load '/opt/bats-assert/load.bash'
   run /bin/bash -c "dojo -c Dojofile.to_be_tested \"aws --version\""
   # this is printed on test failure
   echo "output: $output"
-  assert_line --partial "aws-cli/1.16.161"
+  assert_line --partial "aws-cli/1.16.238"
   assert_equal "$status" 0
 }
 @test "correct jq version is installed" {

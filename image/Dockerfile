@@ -1,14 +1,14 @@
 FROM alpine:3.9
 
 # Install common Dojo scripts
-ENV DOJO_VERSION=0.5.0
+ENV DOJO_VERSION=0.6.0
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && \
   apk add --no-cache tini bash shadow sudo git && \
-  git clone --depth 1 -b ${DOJO_VERSION} https://github.com/ai-traders/dojo.git /tmp/dojo_git &&\
+  git clone --depth 1 -b ${DOJO_VERSION} https://github.com/kudulab/dojo.git /tmp/dojo_git &&\
   /tmp/dojo_git/image_scripts/src/install.sh && \
   rm -r /tmp/dojo_git
 
-ENV AWS_CLI_VERSION=1.16.161
+ENV AWS_CLI_VERSION=1.16.238
 RUN apk add --no-cache python py-pip &&\
   pip install awscli==${AWS_CLI_VERSION}
 
