@@ -1,6 +1,10 @@
 # docker-aws-dojo
 
-[Dojo](https://github.com/kudulab/dojo) docker image with [awscli](https://github.com/aws/aws-cli) installed.
+[Dojo](https://github.com/kudulab/dojo) docker image with:
+   * [awscli](https://github.com/aws/aws-cli)
+   * [boto3](https://github.com/boto/boto3)
+
+
 Based on alpine docker image.
 
 ## Usage

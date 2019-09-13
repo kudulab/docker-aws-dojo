@@ -8,9 +8,9 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repos
   /tmp/dojo_git/image_scripts/src/install.sh && \
   rm -r /tmp/dojo_git
 
-ENV AWS_CLI_VERSION=1.16.238
+ENV AWS_CLI_VERSION=1.16.238 BOTO3_VERSION=1.9.228
 RUN apk add --no-cache python py-pip &&\
-  pip install awscli==${AWS_CLI_VERSION}
+  pip install awscli==${AWS_CLI_VERSION} boto3==${BOTO3_VERSION}
 
 # install jq to parse json in bash
 RUN wget -O ./jq-linux64 https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 &&\

@@ -12,7 +12,7 @@ load '/opt/bats-assert/load.bash'
   refute_output --partial "root"
   assert_equal "$status" 0
 }
-@test "correct aws version is installed" {
+@test "correct awscli version is installed" {
   run /bin/bash -c "dojo -c Dojofile.to_be_tested \"aws --version\""
   # this is printed on test failure
   echo "output: $output"
@@ -24,5 +24,12 @@ load '/opt/bats-assert/load.bash'
   # this is printed on test failure
   echo "output: $output"
   assert_line --partial "jq-1.5"
+  assert_equal "$status" 0
+}
+@test "correct boto3 version is installed" {
+  run /bin/bash -c "dojo -c Dojofile.to_be_tested \"pip list | grep boto3\""
+  # this is printed on test failure
+  echo "output: $output"
+  assert_line --partial "1.9.228"
   assert_equal "$status" 0
 }
