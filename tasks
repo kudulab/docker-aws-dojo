@@ -66,7 +66,7 @@ case "${command}" in
       docker_ops::ensure_pulled_image "${image_dir}" "${imagerc_filename}"
       echo "Testing image: ${KUDU_DOCKER_IMAGE_URL}"
       echo "DOJO_DOCKER_IMAGE=\"${KUDU_DOCKER_IMAGE_URL}\"" > ./Dojofile.to_be_tested
-      echo "DOJO_IDENTITY_OUTER=\"$(pwd)/test/integration/identities/no_secrets\"" >> ./Dojofile.to_be_tested
+      echo "DOJO_IDENTITY_OUTER=\"$(pwd)/test/integration/identities/aws_secrets\"" >> ./Dojofile.to_be_tested
       echo "DOJO_WORK_OUTER=$(pwd)/test/integration/test_dojo_work" >> ./Dojofile.to_be_tested
       time bats "$(pwd)/test/integration/end_user"
       ;;
@@ -74,7 +74,7 @@ case "${command}" in
       docker_ops::ensure_pulled_image "${image_dir}" "${imagerc_filename}"
       echo "Testing image: ${KUDU_DOCKER_IMAGE_URL}"
       echo "DOJO_DOCKER_IMAGE=\"${KUDU_DOCKER_IMAGE_URL}\"" > ./Dojofile.example
-      echo "DOJO_IDENTITY_OUTER=\"$(pwd)/test/integration/identities/no_secrets\"" >> ./Dojofile.example
+      echo "DOJO_IDENTITY_OUTER=\"$(pwd)/test/integration/identities/aws_secrets\"" >> ./Dojofile.example
       echo "DOJO_WORK_OUTER=$(pwd)/test/integration/test_dojo_work" >> ./Dojofile.example
       dojo -c ./Dojofile.example
       ;;

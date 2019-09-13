@@ -23,6 +23,7 @@ COPY profile /home/dojo/.profile
 RUN chown dojo:dojo /home/dojo/.bashrc /home/dojo/.profile
 
 COPY inputrc /etc/inputrc
+COPY etc_dojo.d /etc/dojo.d
 
 ENTRYPOINT ["/sbin/tini", "-g", "--", "/usr/bin/entrypoint.sh"]
 CMD ["/bin/bash"]

@@ -33,3 +33,17 @@ load '/opt/bats-assert/load.bash'
   assert_line --partial "1.9.228"
   assert_equal "$status" 0
 }
+@test "aws config directory is copied into dojo home" {
+  run /bin/bash -c "dojo -c Dojofile.to_be_tested \"cat /home/dojo/.aws/config\""
+  # this is printed on test failure
+  echo "output: $output"
+  assert_line --partial "region"
+  assert_equal "$status" 0
+}
+@test "boto3 uses aws config" {
+  run /bin/bash -c "dojo -c Dojofile.to_be_tested \"python main.py\""
+  # this is printed on test failure
+  echo "output: $output"
+  assert_line --partial "Current region is: eu-west-1"
+  assert_equal "$status" 0
+}
