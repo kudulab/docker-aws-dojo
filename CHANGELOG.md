@@ -1,3 +1,5 @@
+### 0.2.0 (2019-Sep-13)
+
 * upgrade awscli to 1.16.238
 * upgrade dojo scripts to 0.6.0
 * install also boto3
