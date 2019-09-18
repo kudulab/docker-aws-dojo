@@ -28,7 +28,7 @@ if [[ ! -f $SECRET_OPS_TAR_FILE ]];then
 fi
 source $SECRET_OPS_FILE
 
-image_name="kudulab/docker-aws-dojo"
+image_name="kudulab/aws-dojo"
 image_registry="dockerhub"
 image_dir="./image"
 imagerc_filename="imagerc"

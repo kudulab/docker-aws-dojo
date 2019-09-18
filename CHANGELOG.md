@@ -1,3 +1,8 @@
+### 0.2.1 (2019-Sep-18)
+
+* change the name of docker image from kudulab/docker-aws-dojo to
+ kudulab/aws-dojo in order to match a convention
+
 ### 0.2.0 (2019-Sep-13)
 
 * upgrade awscli to 1.16.238
