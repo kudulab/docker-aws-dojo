@@ -3,21 +3,28 @@
 [Dojo](https://github.com/kudulab/dojo) docker image with:
    * [awscli](https://github.com/aws/aws-cli)
    * [boto3](https://github.com/boto/boto3)
+   * make
 
 
 Based on alpine docker image.
 
 ## Usage
+
+1. [Install docker](https://docs.docker.com/install/), if you haven't already.
 1. Install [Dojo](https://github.com/kudulab/dojo)
+2. Install Dojo, it is a self-contained binary, so just place it somewhere on the `PATH`. On OSX you can use `brew install kudulab/homebrew-dojo-osx/dojo`.
+
+**On Linux**
 ```bash
-DOJO_VERSION=0.6.0
+DOJO_VERSION=0.6.2
 wget -O dojo https://github.com/kudulab/dojo/releases/download/${DOJO_VERSION}/dojo_linux_amd64
 sudo mv dojo /usr/local/bin
 sudo chmod +x /usr/local/bin/dojo
 ```
+
 2. Provide a Dojofile:
 ```
-DOJO_DOCKER_IMAGE="kudulab/aws-dojo:1.0.0"
+DOJO_DOCKER_IMAGE="kudulab/aws-dojo:0.3.0"
 ```
 3. Enter a docker container by running `dojo`. Use the AWS CLI.
 

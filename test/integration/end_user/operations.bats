@@ -19,6 +19,13 @@ load '/opt/bats-assert/load.bash'
   assert_line --partial "aws-cli/1.16.238"
   assert_equal "$status" 0
 }
+@test "make is installed" {
+  run /bin/bash -c "dojo -c Dojofile.to_be_tested \"make --version\""
+  # this is printed on test failure
+  echo "output: $output"
+  assert_line --partial "GNU Make"
+  assert_equal "$status" 0
+}
 @test "correct jq version is installed" {
   run /bin/bash -c "dojo -c Dojofile.to_be_tested \"jq --version\""
   # this is printed on test failure

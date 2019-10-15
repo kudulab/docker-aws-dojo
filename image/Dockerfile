@@ -1,7 +1,7 @@
 FROM alpine:3.9
 
 # Install common Dojo scripts
-ENV DOJO_VERSION=0.6.0
+ENV DOJO_VERSION=0.6.2
 RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && \
   apk add --no-cache tini bash shadow sudo git && \
   git clone --depth 1 -b ${DOJO_VERSION} https://github.com/kudulab/dojo.git /tmp/dojo_git &&\
@@ -9,7 +9,7 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repos
   rm -r /tmp/dojo_git
 
 ENV AWS_CLI_VERSION=1.16.238 BOTO3_VERSION=1.9.228
-RUN apk add --no-cache python py-pip &&\
+RUN apk add --no-cache make python py-pip &&\
   pip install awscli==${AWS_CLI_VERSION} boto3==${BOTO3_VERSION}
 
 # install jq to parse json in bash

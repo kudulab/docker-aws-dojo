@@ -1,3 +1,6 @@
+### 0.3.0 (2019-Oct-15)
+Added make.
+
 ### 0.2.1 (2019-Sep-18)
 
 * change the name of docker image from kudulab/docker-aws-dojo to
