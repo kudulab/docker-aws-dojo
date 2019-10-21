@@ -19,6 +19,20 @@ load '/opt/bats-assert/load.bash'
   assert_line --partial "aws-cli/1.16.238"
   assert_equal "$status" 0
 }
+@test "saml2aws is installed" {
+  run /bin/bash -c "dojo -c Dojofile.to_be_tested \"saml2aws --help\""
+  # this is printed on test failure
+  echo "output: $output"
+  assert_line --partial "usage: saml2aws"
+  assert_equal "$status" 0
+}
+@test "aws-nuke is installed" {
+  run /bin/bash -c "dojo -c Dojofile.to_be_tested \"aws-nuke --help\""
+  # this is printed on test failure
+  echo "output: $output"
+  assert_line --partial "A tool which removes every resource from an AWS account"
+  assert_equal "$status" 0
+}
 @test "make is installed" {
   run /bin/bash -c "dojo -c Dojofile.to_be_tested \"make --version\""
   # this is printed on test failure

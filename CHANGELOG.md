@@ -1,3 +1,9 @@
+### 0.4.0 (2019-Oct-21)
+Added:
+* [saml2aws](https://github.com/Versent/saml2aws)
+* [aws-nuke](https://github.com/rebuy-de/aws-nuke)
+
+
 ### 0.3.0 (2019-Oct-15)
 Added make.
 

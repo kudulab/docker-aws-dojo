@@ -4,7 +4,8 @@
    * [awscli](https://github.com/aws/aws-cli)
    * [boto3](https://github.com/boto/boto3)
    * make
-
+   * [saml2aws](https://github.com/Versent/saml2aws)
+   * [aws-nuke](https://github.com/rebuy-de/aws-nuke)
 
 Based on alpine docker image.
 
@@ -12,7 +13,7 @@ Based on alpine docker image.
 
 1. [Install docker](https://docs.docker.com/install/), if you haven't already.
 1. Install [Dojo](https://github.com/kudulab/dojo)
-2. Install Dojo, it is a self-contained binary, so just place it somewhere on the `PATH`. On OSX you can use `brew install kudulab/homebrew-dojo-osx/dojo`.
+2. Install Dojo, it is a self-contained binary, so just place it somewhere on the `PATH`. **On OSX** you can use `brew install kudulab/homebrew-dojo-osx/dojo`.
 
 **On Linux**
 ```bash

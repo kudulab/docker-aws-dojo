@@ -17,6 +17,19 @@ RUN wget -O ./jq-linux64 https://github.com/stedolan/jq/releases/download/jq-1.5
   chmod +x ./jq-linux64 &&\
   mv ./jq-linux64 /usr/bin/jq
 
+# Install saml2aws - it's the most robust tool of this type
+RUN wget -O saml2aws.tar.gz \
+ https://github.com/Versent/saml2aws/releases/download/v2.17.0/saml2aws_2.17.0_linux_amd64.tar.gz &&\
+ tar xf saml2aws.tar.gz &&\
+ chmod +x saml2aws &&\
+ mv saml2aws /usr/bin
+
+# Install aws-nuke
+RUN wget -O aws-nuke \
+  https://github.com/rebuy-de/aws-nuke/releases/download/v2.12.0/aws-nuke-v2.12.0-linux-amd64 &&\
+  chmod +x aws-nuke &&\
+  mv aws-nuke /usr/bin/
+
 # pretty bash prompt
 COPY bashrc /home/dojo/.bashrc
 COPY profile /home/dojo/.profile
