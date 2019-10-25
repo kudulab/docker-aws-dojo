@@ -19,11 +19,25 @@ load '/opt/bats-assert/load.bash'
   assert_line --partial "aws-cli/1.16.238"
   assert_equal "$status" 0
 }
+@test "awscli help can be requested" {
+  run /bin/bash -c "dojo -c Dojofile.to_be_tested \"aws help\""
+  # this is printed on test failure
+  echo "output: $output"
+  assert_line --partial "DESCRIPTION"
+  assert_equal "$status" 0
+}
 @test "saml2aws is installed" {
   run /bin/bash -c "dojo -c Dojofile.to_be_tested \"saml2aws --help\""
   # this is printed on test failure
   echo "output: $output"
   assert_line --partial "usage: saml2aws"
+  assert_equal "$status" 0
+}
+@test "correct ecs-cli version is installed" {
+  run /bin/bash -c "dojo -c Dojofile.to_be_tested \"ecs-cli --version\""
+  # this is printed on test failure
+  echo "output: $output"
+  assert_line --partial "1.17.0"
   assert_equal "$status" 0
 }
 @test "aws-nuke is installed" {
