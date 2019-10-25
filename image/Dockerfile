@@ -8,11 +8,15 @@ RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repos
   /tmp/dojo_git/image_scripts/src/install.sh && \
   rm -r /tmp/dojo_git
 
-ENV AWS_CLI_VERSION=1.16.238 BOTO3_VERSION=1.9.228
-RUN apk add --no-cache make python py-pip &&\
+ENV AWS_CLI_VERSION=1.16.238 BOTO3_VERSION=1.9.228 ECS_CLI_VERSION=1.7.0
+RUN apk add --no-cache make python py-pip curl groff &&\
   pip install awscli==${AWS_CLI_VERSION} boto3==${BOTO3_VERSION}
 
-# install jq to parse json in bash
+# Install the AWS ECS CLI
+RUN sudo curl -o /usr/local/bin/ecs-cli https://amazon-ecs-cli.s3.amazonaws.com/ecs-cli-linux-amd64-v${ECS_CLI_VERSION}
+RUN sudo chmod +x /usr/local/bin/ecs-cli
+
+# Install jq to parse json in bash
 RUN wget -O ./jq-linux64 https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 &&\
   chmod +x ./jq-linux64 &&\
   mv ./jq-linux64 /usr/bin/jq

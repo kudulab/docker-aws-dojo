@@ -1,3 +1,7 @@
+### 0.5.0 (2019-Oct-25)
+* prevented error when requesting awscli help
+* added [ecs-cli](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_CLI.html)
+
 ### 0.4.0 (2019-Oct-21)
 Added:
 * [saml2aws](https://github.com/Versent/saml2aws)
