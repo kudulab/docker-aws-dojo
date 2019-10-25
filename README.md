@@ -6,6 +6,7 @@
    * make
    * [saml2aws](https://github.com/Versent/saml2aws)
    * [aws-nuke](https://github.com/rebuy-de/aws-nuke)
+   * ecs-cli
 
 Based on alpine docker image.
 

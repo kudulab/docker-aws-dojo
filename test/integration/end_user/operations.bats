@@ -37,7 +37,7 @@ load '/opt/bats-assert/load.bash'
   run /bin/bash -c "dojo -c Dojofile.to_be_tested \"ecs-cli --version\""
   # this is printed on test failure
   echo "output: $output"
-  assert_line --partial "1.17.0"
+  assert_line --partial "1.7.0"
   assert_equal "$status" 0
 }
 @test "aws-nuke is installed" {
