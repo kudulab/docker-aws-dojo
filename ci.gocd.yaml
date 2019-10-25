@@ -7,7 +7,7 @@ pipelines:
       git:
         type: configrepo
     secure_variables:
-      VAULT_TOKEN: "AES:4F4BCsBRKRa4owvI1N8kSw==:96ht1V8Pt49BMhmNmBmhvw+TT5/8bPrfMLnLB5sXn2w="
+      VAULT_TOKEN: "AES:yEGyePp/qgQSHY7pRezN0Q==:lbd60J3OVq1459WRqyY200+GUSbbBoEw9cb/+NUiWQE="
     stages:
       - build:
           clean_workspace: true
