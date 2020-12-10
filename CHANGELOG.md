@@ -1,3 +1,12 @@
+### 0.6.0 (2020-Dec-10)
+
+* awscli 2.0.30
+* ecs-cli 1.20.0
+* saml2aws 2.27.1
+* boto3 1.16.33
+* aws-nuke 2.14.0
+* dojo docker image scripts 0.10.3
+
 ### 0.5.0 (2019-Oct-25)
 * prevented error when requesting awscli help
 * added [ecs-cli](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_CLI.html)
