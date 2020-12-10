@@ -25,6 +25,9 @@ aws --version
 aws ec2 describe-instances --filters "Name=tag:Name,Values=ec2-ansible-test"
 ```
 
+## Configuration
+If the directory `$HOME/.aws` exists locally, then it will be read-only mounted into a Dojo Docker container. This is how we can provide AWS credentials to the Dojo Docker container.
+
 
 ## License
 
