@@ -12,28 +12,23 @@ Based on alpine docker image.
 
 ## Usage
 
-1. [Install docker](https://docs.docker.com/install/), if you haven't already.
-1. Install [Dojo](https://github.com/kudulab/dojo)
-2. Install Dojo, it is a self-contained binary, so just place it somewhere on the `PATH`. **On OSX** you can use `brew install kudulab/homebrew-dojo-osx/dojo`.
-
-**On Linux**
-```bash
-DOJO_VERSION=0.6.2
-wget -O dojo https://github.com/kudulab/dojo/releases/download/${DOJO_VERSION}/dojo_linux_amd64
-sudo mv dojo /usr/local/bin
-sudo chmod +x /usr/local/bin/dojo
-```
-
+1. Install [Dojo](https://github.com/kudulab/dojo/#installation)
 2. Provide a Dojofile:
 ```
-DOJO_DOCKER_IMAGE="kudulab/aws-dojo:0.3.0"
+$ cat Dojofile
+DOJO_DOCKER_IMAGE="kudulab/aws-dojo:0.6.0"
 ```
-3. Enter a docker container by running `dojo`. Use the AWS CLI.
+3. Enter a docker container by running `dojo` in the same directory as Dojofile.
+4. Example commands to run inside the Dojo created container:
+```
+aws --version
+aws ec2 describe-instances --filters "Name=tag:Name,Values=ec2-ansible-test"
+```
 
 
 ## License
 
-Copyright 2019 Ewa Czechowska, Tomasz Sętkowski
+Copyright 2019-2020 Ewa Czechowska, Tomasz Sętkowski
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

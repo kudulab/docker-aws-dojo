@@ -16,7 +16,7 @@ load '/opt/bats-assert/load.bash'
   run /bin/bash -c "dojo -c Dojofile.to_be_tested \"aws --version\""
   # this is printed on test failure
   echo "output: $output"
-  assert_line --partial "aws-cli/1.16.238"
+  assert_line --partial "aws-cli/2.0.30"
   assert_equal "$status" 0
 }
 @test "awscli help can be requested" {
@@ -37,7 +37,7 @@ load '/opt/bats-assert/load.bash'
   run /bin/bash -c "dojo -c Dojofile.to_be_tested \"ecs-cli --version\""
   # this is printed on test failure
   echo "output: $output"
-  assert_line --partial "1.7.0"
+  assert_line --partial "1.20.0"
   assert_equal "$status" 0
 }
 @test "aws-nuke is installed" {
@@ -65,7 +65,7 @@ load '/opt/bats-assert/load.bash'
   run /bin/bash -c "dojo -c Dojofile.to_be_tested \"pip list | grep boto3\""
   # this is printed on test failure
   echo "output: $output"
-  assert_line --partial "1.9.228"
+  assert_line --partial "1.16.33"
   assert_equal "$status" 0
 }
 @test "aws config directory is copied into dojo home" {
