@@ -28,6 +28,16 @@ aws ec2 describe-instances --filters "Name=tag:Name,Values=ec2-ansible-test"
 ## Configuration
 If the directory `$HOME/.aws` exists locally, then it will be read-only mounted into a Dojo Docker container. This is how we can provide AWS credentials to the Dojo Docker container.
 
+## Contributing
+Instructions how to update this project.
+
+1. Create a new feature branch from the main branch: master
+1. Work on your changes in that feature branch. If you want, describe you changes in [CHANGELOG.md](CHANGELOG.md)
+1. Build your image locally to check that it succeeds: `./tasks build_local`
+1. Test your image: `./tasks itest`
+1. If you are happy with the results, create a PR from your feature branch to master branch
+1. Someone will read your PR, merge it and ensure version bump (using `./tasks set_version`)
+1. CI pipeline will run to automatically build and test docker image, release the project and publish the docker image.
 
 ## License
 
