@@ -16,7 +16,7 @@ Based on alpine docker image.
 2. Provide a Dojofile:
 ```
 $ cat Dojofile
-DOJO_DOCKER_IMAGE="kudulab/aws-dojo:0.6.0"
+DOJO_DOCKER_IMAGE="kudulab/aws-dojo:0.7.0"
 ```
 3. Enter a docker container by running `dojo` in the same directory as Dojofile.
 4. Example commands to run inside the Dojo created container:
@@ -41,7 +41,7 @@ Instructions how to update this project.
 
 ## License
 
-Copyright 2019-2020 Ewa Czechowska, Tomasz Sętkowski
+Copyright 2019-2022 Ewa Czechowska, Tomasz Sętkowski
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

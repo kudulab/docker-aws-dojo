@@ -1,3 +1,5 @@
+### 0.7.0 (2022-Feb-20)
+
 * awscli 2.4.19
 * base image alpine:3.15
 * dojo docker image scripts 0.10.5
