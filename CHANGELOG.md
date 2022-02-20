@@ -1,3 +1,8 @@
+* awscli 2.4.19
+* base image alpine:3.15
+* dojo docker image scripts 0.10.5
+* boto3 1.21.3
+
 ### 0.6.0 (2020-Dec-10)
 
 * awscli 2.0.30

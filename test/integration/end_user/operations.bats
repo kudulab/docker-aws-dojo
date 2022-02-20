@@ -16,14 +16,14 @@ load '/opt/bats-assert/load.bash'
   run /bin/bash -c "dojo -c Dojofile.to_be_tested \"aws --version\""
   # this is printed on test failure
   echo "output: $output"
-  assert_line --partial "aws-cli/2.0.30"
+  assert_line --partial "aws-cli/2.4.19"
   assert_equal "$status" 0
 }
 @test "awscli help can be requested" {
   run /bin/bash -c "dojo -c Dojofile.to_be_tested \"aws help\""
   # this is printed on test failure
   echo "output: $output"
-  assert_line --partial "DESCRIPTION"
+  assert_line --partial "The  AWS  Command  Line  Interface"
   assert_equal "$status" 0
 }
 @test "saml2aws is installed" {
@@ -65,7 +65,7 @@ load '/opt/bats-assert/load.bash'
   run /bin/bash -c "dojo -c Dojofile.to_be_tested \"pip list | grep boto3\""
   # this is printed on test failure
   echo "output: $output"
-  assert_line --partial "1.16.33"
+  assert_line --partial "1.21.3"
   assert_equal "$status" 0
 }
 @test "aws config directory is copied into dojo home" {
@@ -76,7 +76,7 @@ load '/opt/bats-assert/load.bash'
   assert_equal "$status" 0
 }
 @test "boto3 uses aws config" {
-  run /bin/bash -c "dojo -c Dojofile.to_be_tested \"python main.py\""
+  run /bin/bash -c "dojo -c Dojofile.to_be_tested \"python3 main.py\""
   # this is printed on test failure
   echo "output: $output"
   assert_line --partial "Current region is: eu-west-1"

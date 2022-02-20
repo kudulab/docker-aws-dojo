@@ -1,9 +1,8 @@
-FROM alpine:3.9
+FROM alpine:3.15
 
 # Install common Dojo scripts
-ENV DOJO_VERSION=0.10.3
-RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && \
-  apk add --no-cache tini bash shadow sudo git && \
+ENV DOJO_VERSION=0.10.5
+RUN apk add --no-cache tini bash shadow sudo git && \
   git clone --depth 1 -b ${DOJO_VERSION} https://github.com/kudulab/dojo.git /tmp/dojo_git &&\
   /tmp/dojo_git/image_scripts/src/install.sh && \
   rm -r /tmp/dojo_git
@@ -24,17 +23,17 @@ RUN apk --no-cache add \
     && apk add --no-cache \
         glibc-${GLIBC_VER}.apk \
         glibc-bin-${GLIBC_VER}.apk &&\
-  curl -o awscliv2.sig https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.0.30.zip.sig &&\
-  curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.0.30.zip" -o "awscliv2.zip" &&\
+  curl -o awscliv2.sig https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.4.19.zip.sig &&\
+  curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.4.19.zip" -o "awscliv2.zip" &&\
   gpg --import /opt/aws.gpg &&\
   gpg --verify awscliv2.sig awscliv2.zip &&\
   unzip awscliv2.zip &&\
   ./aws/install
 
 # groff less are needed to read aws cli help
-ENV BOTO3_VERSION=1.16.33 ECS_CLI_VERSION=1.20.0
-RUN apk add --no-cache make python py-pip curl groff less &&\
-  pip install boto3==${BOTO3_VERSION}
+ENV BOTO3_VERSION=1.21.3 ECS_CLI_VERSION=1.20.0
+RUN apk add --no-cache make python3 py3-pip curl groff less &&\
+  pip3 install boto3==${BOTO3_VERSION}
 
 # Install the AWS ECS CLI
 RUN sudo curl -o /usr/local/bin/ecs-cli https://amazon-ecs-cli.s3.amazonaws.com/ecs-cli-linux-amd64-v${ECS_CLI_VERSION}
