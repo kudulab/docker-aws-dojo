@@ -3,7 +3,7 @@
 set -Eeuo pipefail
 
 RELEASER_VERSION="2.1.3"
-DOCKER_OPS_VERSION="2.0.0"
+DOCKER_OPS_VERSION="2.0.1"
 SECRET_OPS_VERSION="0.8.0"
 
 SECRET_OPS_FILE="ops/secret-ops"
@@ -34,12 +34,32 @@ image_dir="./image"
 imagerc_filename="imagerc"
 
 function docker_login {
+  if [ -n "$DOCKERHUB_TOKEN" ]; then
+    echo "$DOCKERHUB_TOKEN" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
+    return
+  fi
+  echo "Warning: docker environment variables not found: falling back to Vault for authentication." >&2
   vault_user_path=$USER
   if [ $vault_user_path == "go" ]; then
     vault_user_path="gocd"
   fi
   dockerhub_user=$(vault read -field=user secret/$vault_user_path/dockerhub)
   vault read -field=password secret/$vault_user_path/dockerhub | docker login --username $dockerhub_user --password-stdin
+}
+
+function setup_github_credentials {
+  if [ -z "$GITHUB_CREDENTIALS" ]; then
+    echo "Error: GITHUB_CREDENTIALS not set" >&2
+    exit 1
+  fi
+  # GITHUB_CREDENTIALS should be in format of account-name:api-key
+
+  # example HTTPS URL: https://github.com/user/repo.git
+  # example SSH URL: git@github.com:user/repo.git
+  OLD_URL=$(git remote get-url origin)
+  NEW_URL=$(echo $OLD_URL | sed "s|git@github.com:|https://$GITHUB_CREDENTIALS@github.com/|g")
+  git remote set-url origin $NEW_URL
+  echo "GitHub new remote was set"
 }
 
 command="$1"
@@ -80,8 +100,8 @@ case "${command}" in
       ;;
   release)
       ./tasks verify_version
-      version=$(releaser::get_last_version_from_whole_changelog "${changelog_file}")
-      git tag "${version}" && git push origin "${version}"
+      setup_github_credentials
+      releaser::git_tag_from_changelog
       ;;
   publish)
       docker_login
