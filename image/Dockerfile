@@ -52,10 +52,11 @@ RUN wget -O saml2aws.tar.gz \
  mv saml2aws /usr/bin
 
 # Install aws-nuke
-RUN wget -O aws-nuke \
-  https://github.com/rebuy-de/aws-nuke/releases/download/v2.14.0/aws-nuke-v2.14.0-linux-amd64 &&\
-  chmod +x aws-nuke &&\
-  mv aws-nuke /usr/bin/
+RUN wget \
+  https://github.com/rebuy-de/aws-nuke/releases/download/v2.19.0/aws-nuke-v2.19.0-linux-amd64.tar.gz &&\
+  tar xf aws-nuke-v2.19.0-linux-amd64.tar.gz &&\
+  chmod +x aws-nuke-v2.19.0-linux-amd64 &&\
+  mv aws-nuke-v2.19.0-linux-amd64 /usr/bin/aws-nuke
 
 # pretty bash prompt
 COPY bashrc /home/dojo/.bashrc
