@@ -32,22 +32,17 @@ If the directory `$HOME/.aws` exists locally, then it will be read-only mounted 
 Instructions how to update this project.
 
 1. Create a new feature branch from the main branch: master
-
 2. Work on your changes in that feature branch. If you want, describe you changes in [CHANGELOG.md](CHANGELOG.md)
-
 3. Build your image locally to check that it succeeds: `./tasks build_local`
-
-4. Install [bats](https://bats-core.readthedocs.io/en/stable/installation.html)
+4. Install the test framework by either running the commands from [here](https://github.com/kudulab/docker-terraform-dojo/blob/1.8.0/tasks#L66) or follow these steps:
+  * Install [bats](https://bats-core.readthedocs.io/en/stable/installation.html)
    for running tests.
-
-5. Checkout the repositories
+  * Checkout the repositories
    [bats-core/bats-support](https://github.com/bats-core/bats-support) and
    [bats-core/bats-assert](https://github.com/bats-core/bats-assert) into your
    system's `/opt` directory, to satisfy testing dependencies.
-
-4. Test your image locally: `./tasks itest`
-
-5. If you are happy with the results, create a PR from your feature branch to master branch
+5. Test your image locally: `./tasks itest`
+6. If you are happy with the results, create a PR from your feature branch to master branch
 
 After this, someone will read your PR, merge it and ensure version bump (using `./tasks set_version`). CI pipeline will run to automatically build and test docker image, release the project and publish the docker image.
 
